@@ -1,0 +1,11 @@
+%ul
+  -order.order_items.each do |item|
+    %li
+      %em=item.quantity
+      =item.product.name
+      =number_to_currency item.total_price
+
+%p
+  %strong
+    Total price:
+    =number_to_currency order.total_price

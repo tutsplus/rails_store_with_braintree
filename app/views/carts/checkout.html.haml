@@ -33,4 +33,11 @@
 
       %p=u.text_field :phone, class: "form-control", placeholder: "Phone"
 
+  #dropin
+
   %p=f.submit "Place order", class: "btn btn-primary"
+
+:javascript
+  braintree.setup("#{@client_token}", 'dropin', {
+    container: 'dropin'
+  });

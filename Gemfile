@@ -23,6 +23,7 @@ gem 'mini_magick'
 gem 'puma'
 gem 'devise'
 gem 'country_select'
+gem 'braintree'
 
 group :test do
   gem 'minitest-rails'
