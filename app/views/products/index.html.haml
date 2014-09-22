@@ -1,20 +1,6 @@
 %h1 Products
 
-%table.table.table-hover
-  %thead
-    %tr
-      %th Name
-      %th Price
-      %th Image
-      %th
+=render "products/table", products: @products
 
-  - @products.each do |product|
-    %tr
-      %td= link_to product.name, product
-      %td= number_to_currency product.price
-      %td= image_tag product.image.thumb
-      %td
-        = link_to 'Edit', edit_product_path(product)
-        = link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
-
-%p= link_to 'New Product', new_product_path, class: "btn btn-primary"
+-if current_user && current_user.admin?
+  %p= link_to 'New Product', new_product_path, class: "btn btn-primary"

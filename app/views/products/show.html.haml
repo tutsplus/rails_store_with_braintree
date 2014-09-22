@@ -2,6 +2,7 @@
 
 %p= number_to_currency @product.price
 %p= image_tag @product.image, height: "300"
+%p= @product.category.name
 
 %p=link_to "Add to cart", add_cart_path, method: :post, class: "btn btn-primary"
 

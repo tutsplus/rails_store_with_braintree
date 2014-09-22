@@ -15,5 +15,8 @@
   .field
     = f.label :image
     = f.file_field :image
+  .field
+    = f.label :category
+    = f.select :category_id, Category.all.map { |c| [ c.name, c.id ] }
   .actions
     = f.submit 'Save'

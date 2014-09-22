@@ -15,7 +15,26 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
       <li><%= link_to "Products", products_path %></li>
+      <li class="dropdown">
+        <%= link_to "#", data: { toggle: "dropdown" } do %>
+          Categories
+          <span class="caret"></span>
+        <%- end %>
+        <ul class="dropdown-menu">
+          <% @categories.each do |category| %>
+            <li><%= link_to category.name, category %></li>
+          <% end %>
+        </ul>
+      </li>
     </ul>
+    <p class="navbar-text navbar-right">
+      <% if user_signed_in? %>
+        Logged in as <%= current_user.name %>.
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path, class: "navbar-link" %>
+      <% end %>
+    </p>
     <%= render "cart" %>
   </div><!-- /.navbar-collapse -->
 </div><!-- /.container-fluid -->

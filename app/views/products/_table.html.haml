@@ -1,0 +1,17 @@
+%table.table.table-hover
+  %thead
+    %tr
+      %th Name
+      %th Price
+      %th Image
+      %th
+
+  - products.each do |product|
+    %tr
+      %td= link_to product.name, product
+      %td= number_to_currency product.price
+      %td= image_tag product.image.thumb
+      %td
+        -if current_user && current_user.admin?
+          = link_to 'Edit', edit_product_path(product)
+          = link_to 'Destroy', product, :method => :delete, :data => { :confirm => 'Are you sure?' }
