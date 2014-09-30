@@ -1,0 +1,40 @@
+%h1 All orders
+
+%table.table.table-hover
+  %thead
+    %tr
+      %th ID
+      %th Products
+      %th Total
+      %th User
+      %th Date
+      %th
+
+  - @orders.each do |order|
+    %tr
+      %td= order.id
+      %td
+        %ul
+          -order.order_items.each do |item|
+            %li
+              =item.quantity
+              =item.product.name
+      %td= number_to_currency order.total_price
+      %td
+        %address
+          %strong= order.user.name
+          %br
+          =simple_format order.user.full_address
+      %td
+        %p=time_ago_in_words order.created_at
+        %p.text-muted=order.created_at.strftime "%b %d, %Y - %H:%M"
+      %td
+        =form_for order do |f|
+          =f.select :state, Order::STATES
+
+:javascript
+  $(function() {
+    $("form select").on("change", function() {
+      $(this).parent("form").submit();
+    });
+  });

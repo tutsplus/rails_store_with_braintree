@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get :checkout
   end
 
-  resources :orders, only: [ :index, :show, :create ] do
+  resources :orders, only: [ :index, :show, :create, :update ] do
     member do
       get :new_payment
       post :pay
