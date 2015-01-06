@@ -6,6 +6,4 @@ you are looking to implement a shop yourself you're in the right place.
 
 Learn how to create a Rails application that shows your products off, allows customers to select them for purchase, add to a shopping cart and also place orders so goods are delivered to them. We'll focus on data model design and on integrating Rails with Braintree to process financial transactions.
 
-Source files for the Tuts+ course: [Build a Store With a Payment Gateway in Rails](https://courses.tutsplus.com/courses/)
-
-**Available on Tuts+ December, 2014**
+Source files for the Tuts+ course: [Build a Store With a Payment Gateway in Rails](https://code.tutsplus.com/courses/build-a-store-with-a-payment-gateway-in-rails)
